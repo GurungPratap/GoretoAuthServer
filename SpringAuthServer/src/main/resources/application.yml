@@ -1,0 +1,30 @@
+server:
+  port: 9000
+
+logging:
+  level:
+    org.springframework.security: trace
+
+spring:
+  datasource:
+      url: jdbc:mysql://localhost:3306/goreto
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect=org:
+          hibernate:
+            dialect: MySQLDialect
+
+
+jwt:
+  private:
+    key:
+      path: ${JWT_PRIVATE_KEY:springsecauth.jks}
+      alias: ${JWT_PRIVATE_KEY_ALIAS:springsecauth}
+      password: ${JWT_PRIVATE_KEY_PASS:springsecauth}
+      store_password: ${JWT_PRIVATE_STORE_PASS:springsecauth}
